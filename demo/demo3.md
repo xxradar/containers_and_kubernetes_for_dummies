@@ -24,7 +24,7 @@ root@8d79950f837e:/mnt/etc# cat /mnt/etc/hostname
 ip-10-1-1-52
 root@8d79950f837e:/mnt/etc#
 ```
-#### We now run things on the host file system ...
+#### We now run things on the host file system and have full filesystem access ...
 ```
 chroot /mnt
 ```
