@@ -134,7 +134,7 @@ ubuntu@ip-10-1-1-52:~$ sudo ps -ax -n -o pid,netns,utsns,ipcns,mntns,pidns,cmd |
 ubuntu@ip-10-1-1-52:~$
 ```
 
-#### Now let's create a container that share the the nginx namespace
+#### Now let's create a container that share the network namespace
 You can do this via `--net=container:<containerid>`
 ```
 docker run -it  --net=container:126286cced08 xxradar/hackon
