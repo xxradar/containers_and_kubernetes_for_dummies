@@ -33,7 +33,7 @@ systemd+ 2584258  0.0  0.2  11060  2576 ?        S    15:02   0:00 nginx: worker
 ubuntu   2585516  0.0  0.0   8164   724 pts/1    S+   15:05   0:00 grep --color=auto -i nginx
 ubuntu@ip-10-1-1-52:~$
 ```
-#### you can find namespace information using`lsns`
+#### You can find namespace information using `lsns`
 ```
 ubuntu@ip-10-1-1-52:/$ sudo lsns
         NS TYPE   NPROCS     PID USER             COMMAND
