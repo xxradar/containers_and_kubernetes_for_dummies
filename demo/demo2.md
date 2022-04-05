@@ -228,6 +228,23 @@ Total: 14 (UNKNOWN: 0, LOW: 12, MEDIUM: 2, HIGH: 0, CRITICAL: 0)
 ubuntu@ip-10-1-1-52:~/test$
 ```
 ```
+cat <<EOF >fdevsec.yaml
+version: v1
+
+id:
+  org: 506202ab-209a-49d9-aaa3-59ea554452df
+  app: 47638376-dc2c-4f77-9193-c3a2e6a92640
+
+scanners:
+- sast
+- sca
+- secret
+
+languages:
+- python
+EOF
+```
+```
 ubuntu@ip-10-1-1-52:~/test$ docker pull registry.fortidevsec.forticloud.com/fdevsec_sast:latest
 ...
 ```
