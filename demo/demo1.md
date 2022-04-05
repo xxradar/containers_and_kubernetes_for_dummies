@@ -87,7 +87,10 @@ ubuntu@ip-10-1-1-52:~$ sudo lsns
 ubuntu@ip-10-1-1-52:~$
 ```
 
-#### find the pid of what you want to check ...
+
+
+
+#### Find the pid of what you want to check ...
 ```
 ubuntu@ip-10-1-1-52:~$ ps aux | grep nginx
 root     2584204  0.0  0.5  10656  5796 ?        Ss   15:02   0:00 nginx: master process nginx -g daemon off;
