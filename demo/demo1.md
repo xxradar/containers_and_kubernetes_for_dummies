@@ -1,4 +1,20 @@
 ## Container basics 
+###
+Check the kernel version of the host
+```
+ubuntu@ip-10-1-1-52:~$ uname -r
+5.11.0-1020-aws
+ubuntu@ip-10-1-1-52:~$
+```
+Check the kernetl version inside the container
+```
+ubuntu@ip-10-1-1-52:~$ docker run -it xxradar/hackon
+root@fccf362838ae:/# uname -r
+5.11.0-1020-aws
+root@fccf362838ae:/# exit
+exit
+ubuntu@ip-10-1-1-52:~$
+```
 
 #### Lets create a container ...
 ```
