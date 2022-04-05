@@ -87,18 +87,16 @@ ubuntu@ip-10-1-1-52:~$ sudo lsns
 ubuntu@ip-10-1-1-52:~$
 ```
 
-
 #### find the pid of what you want to check ...
 ```
-
 ubuntu@ip-10-1-1-52:~$ ps aux | grep nginx
 root     2584204  0.0  0.5  10656  5796 ?        Ss   15:02   0:00 nginx: master process nginx -g daemon off;
 systemd+ 2584258  0.0  0.2  11060  2576 ?        S    15:02   0:00 nginx: worker process
 ubuntu   2606061  0.0  0.0   8168   660 pts/1    S+   15:40   0:00 grep --color=auto nginx
-ubuntu@ip-10-1-1-52:~$```
+ubuntu@ip-10-1-1-52:~$
+```
 
-
-### Now you can find the netns of pid to check 
+#### Now you can find the netns of pid to check 
 ```
 ubuntu@ip-10-1-1-52:~$ sudo ps -ax -n -o netns,cmd,pid | grep 2584204
 4026532300 nginx: master process nginx -g daemon off;
