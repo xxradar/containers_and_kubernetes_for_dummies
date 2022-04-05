@@ -228,6 +228,25 @@ Total: 14 (UNKNOWN: 0, LOW: 12, MEDIUM: 2, HIGH: 0, CRITICAL: 0)
 ubuntu@ip-10-1-1-52:~/test$
 ```
 ```
+ubuntu@ip-10-1-1-52:~/test$ docker pull registry.fortidevsec.forticloud.com/fdevsec_sast:latest
+...
+```
+```
+ubuntu@ip-10-1-1-52:~/test$ docker run -i --mount type=bind,source="$(pwd)",target=/scan  registry.fortidevsec.forticloud.com/fdevsec_sast:latest
+2022/04/05 19:13:37 INFO: Not GIT repo.
+2022/04/05 19:13:37 Loaded scan config for Org ID:  506202ab-209a-49d9-aaa3-59ea554452df
+2022/04/05 19:13:37 Languages configured in conf file:  []
+Doesnt seem like its git repo.
+2022/04/05 19:13:37 Unable to create local git. exit status 128
+2022/04/05 19:13:37 Detected languages are:  []
+2022/04/05 19:13:37 Scanners configured in conf file:  [sast sca secret]
+2022/04/05 19:13:38 Total local scanners enabled: 2
+2022/04/05 19:13:38 Running parallel scan as per user config.
+2022/04/05 19:13:39 gitleaksOutput file not Generated.
+2022/04/05 19:13:51 FortiDevSec SAST scanner done, exiting.
+ubuntu@ip-10-1-1-52:~/test$
+```
+```
 ubuntu@ip-10-1-1-52:~/test$ docker tag tls_scan xxradar/tlsscanner:001
 ```
 ```
