@@ -12,10 +12,6 @@ or
 ```
 fdisk -l
 ```
-or 
-```
-ip -a
-```
 #### Mount the boot disk
 ```
 mount /dev/xvda1 /mnt
