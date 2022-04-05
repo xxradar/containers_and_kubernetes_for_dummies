@@ -1,4 +1,4 @@
-## Creating a container
+## Creating a container image
 ```
  curl https://raw.githubusercontent.com/xxradar/TLSSAN_scanner/master/tlssan_scan.sh >tlssan_scan.sh
 ```
@@ -225,3 +225,29 @@ Total: 14 (UNKNOWN: 0, LOW: 12, MEDIUM: 2, HIGH: 0, CRITICAL: 0)
 |           |                  |          |                          |                          | -->avd.aquasec.com/nvd/cve-2018-25032 |
 +-----------+------------------+----------+--------------------------+--------------------------+---------------------------------------+
 ubuntu@ip-10-1-1-52:~/test$
+```
+```
+ubuntu@ip-10-1-1-52:~/test$ docker tag tls_scan xxradar/tlsscanner:001
+```
+```
+ubuntu@ip-10-1-1-52:~/test$ docker login
+Login with your Docker ID to push and pull images from Docker Hub. If you don't have a Docker ID, head over to https://hub.docker.com to create one.
+Username: xxradar
+Password:
+WARNING! Your password will be stored unencrypted in /home/ubuntu/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+```
+```
+ubuntu@ip-10-1-1-52:~/test$ docker push xxradar/tlsscanner:001
+The push refers to repository [docker.io/xxradar/tlsscanner]
+196c170a6b4a: Pushed
+ae4f105c7a2d: Pushed
+83c146231f55: Pushed
+c47e2c7d9cb4: Pushed
+867d0767a47c: Mounted from library/ubuntu
+001: digest: sha256:4534b6953777a25bca78b3e4a0a5e500cdeb90f7564544defb59839c90b5f410 size: 1365
+ubuntu@ip-10-1-1-52:~/test$
+```
