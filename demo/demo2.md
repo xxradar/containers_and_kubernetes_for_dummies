@@ -149,6 +149,7 @@ dockersec/tcpdump                                      latest    f90950058033   
 xxradar/naxsi5                                         latest    9f530a416ad6   6 years ago          212MB
 ubuntu@ip-10-1-1-52:~/test$
 ```
+```
 $ trivy image tls_scan
 2022-04-05T18:56:45.653Z	INFO	Need to update DB
 2022-04-05T18:56:45.654Z	INFO	Downloading DB...
