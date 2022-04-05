@@ -1,5 +1,5 @@
 ## Container basics 
-###
+#### Checking kernel versions
 Check the kernel version of the host
 ```
 ubuntu@ip-10-1-1-52:~$ uname -r
