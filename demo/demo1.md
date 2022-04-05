@@ -245,4 +245,77 @@ ubuntu@ip-10-1-1-52:~$ sudo ps -ax -n -o pid,netns,utsns,ipcns,mntns,pidns,cmd |
      14 4026532040 4026531838 4026531839 4026531840 4026531836 [migration/0]
 ...
 ```
+#### Hacking at full speed
+A cleaner way to find the processID PID
+```
+ubuntu@ip-10-1-1-52:~$ PID=$(sudo docker inspect --format '{{.State.Pid}}' wwwdemo)
+ubuntu@ip-10-1-1-52:~$ echo $PID
+2584204
+ubuntu@ip-10-1-1-52:~$
+```
+Now we can try to `enter` the container namespaces ...
+```
+ubuntu@ip-10-1-1-52:~$ PID=$(sudo docker inspect --format '{{.State.Pid}}' wwwdemo)
+ubuntu@ip-10-1-1-52:~$ echo $PID
+2584204
+```
+```
+ubuntu@ip-10-1-1-52:~$ sudo nsenter --target $PID --mount --uts --ipc --net --pid
+root@126286cced08:/# cat /etc/hostname
+126286cced08
+root@126286cced08:/# uname -a
+Linux 126286cced08 5.11.0-1020-aws #21~20.04.2-Ubuntu SMP Fri Oct 1 13:03:59 UTC 2021 x86_64 GNU/Linux
+root@126286cced08:/# cat /etc/nginx/conf.d/default.conf
+server {
+    listen       80;
+    listen  [::]:80;
+    server_name  localhost;
 
+    #access_log  /var/log/nginx/host.access.log  main;
+
+    location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+    }
+
+    #error_page  404              /404.html;
+
+    # redirect server error pages to the static page /50x.html
+    #
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+
+    # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+    #
+    #location ~ \.php$ {
+    #    proxy_pass   http://127.0.0.1;
+    #}
+
+    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+    #
+    #location ~ \.php$ {
+    #    root           html;
+    #    fastcgi_pass   127.0.0.1:9000;
+    #    fastcgi_index  index.php;
+    #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+    #    include        fastcgi_params;
+    #}
+
+    # deny access to .htaccess files, if Apache's document root
+    # concurs with nginx's one
+    #
+    #location ~ /\.ht {
+    #    deny  all;
+    #}
+}
+root@126286cced08:/# echo  "Hacking" >/usr/share/nginx/html/hacking.html
+root@126286cced08:/#
+```
+Fron another container ...
+```
+root@a813420e05c5:/# curl 172.17.0.2/hacking.html
+Hacking
+root@a813420e05c5:/#
+```
