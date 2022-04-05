@@ -149,3 +149,79 @@ dockersec/tcpdump                                      latest    f90950058033   
 xxradar/naxsi5                                         latest    9f530a416ad6   6 years ago          212MB
 ubuntu@ip-10-1-1-52:~/test$
 ```
+$ trivy image tls_scan
+2022-04-05T18:56:45.653Z	INFO	Need to update DB
+2022-04-05T18:56:45.654Z	INFO	Downloading DB...
+31.06 MiB / 31.06 MiB [---------------------------------------------------------------------------------------------------------------------------------------------------------------------------] 100.00% 7.95 MiB p/s 4s
+2022-04-05T18:56:55.731Z	INFO	Detected OS: ubuntu
+2022-04-05T18:56:55.731Z	INFO	Detecting Ubuntu vulnerabilities...
+2022-04-05T18:56:55.742Z	INFO	Number of language-specific files: 0
+
+tls_scan (ubuntu 20.04)
+=======================
+Total: 14 (UNKNOWN: 0, LOW: 12, MEDIUM: 2, HIGH: 0, CRITICAL: 0)
+
++-----------+------------------+----------+--------------------------+--------------------------+---------------------------------------+
+|  LIBRARY  | VULNERABILITY ID | SEVERITY |    INSTALLED VERSION     |      FIXED VERSION       |                 TITLE                 |
++-----------+------------------+----------+--------------------------+--------------------------+---------------------------------------+
+| bash      | CVE-2019-18276   | LOW      | 5.0-6ubuntu1.1           |                          | bash: when effective UID is not       |
+|           |                  |          |                          |                          | equal to its real UID the...          |
+|           |                  |          |                          |                          | -->avd.aquasec.com/nvd/cve-2019-18276 |
++-----------+------------------+          +--------------------------+--------------------------+---------------------------------------+
+| coreutils | CVE-2016-2781    |          | 8.30-3ubuntu2            |                          | coreutils: Non-privileged             |
+|           |                  |          |                          |                          | session can escape to the             |
+|           |                  |          |                          |                          | parent session in chroot              |
+|           |                  |          |                          |                          | -->avd.aquasec.com/nvd/cve-2016-2781  |
++-----------+------------------+          +--------------------------+--------------------------+---------------------------------------+
+| libgmp10  | CVE-2021-43618   |          | 2:6.2.0+dfsg-4           |                          | gmp: Integer overflow and resultant   |
+|           |                  |          |                          |                          | buffer overflow via crafted input     |
+|           |                  |          |                          |                          | -->avd.aquasec.com/nvd/cve-2021-43618 |
++-----------+------------------+          +--------------------------+--------------------------+---------------------------------------+
+| libpcre3  | CVE-2017-11164   |          | 2:8.39-12build1          |                          | pcre: OP_KETRMAX feature in the       |
+|           |                  |          |                          |                          | match function in pcre_exec.c         |
+|           |                  |          |                          |                          | -->avd.aquasec.com/nvd/cve-2017-11164 |
++           +------------------+          +                          +--------------------------+---------------------------------------+
+|           | CVE-2019-20838   |          |                          |                          | pcre: Buffer over-read in JIT         |
+|           |                  |          |                          |                          | when UTF is disabled and \X or...     |
+|           |                  |          |                          |                          | -->avd.aquasec.com/nvd/cve-2019-20838 |
++           +------------------+          +                          +--------------------------+---------------------------------------+
+|           | CVE-2020-14155   |          |                          |                          | pcre: Integer overflow when           |
+|           |                  |          |                          |                          | parsing callout numeric arguments     |
+|           |                  |          |                          |                          | -->avd.aquasec.com/nvd/cve-2020-14155 |
++-----------+------------------+          +--------------------------+--------------------------+---------------------------------------+
+| libsepol1 | CVE-2021-36084   |          | 3.0-1                    |                          | libsepol: use-after-free in           |
+|           |                  |          |                          |                          | __cil_verify_classperms()             |
+|           |                  |          |                          |                          | -->avd.aquasec.com/nvd/cve-2021-36084 |
++           +------------------+          +                          +--------------------------+---------------------------------------+
+|           | CVE-2021-36085   |          |                          |                          | libsepol: use-after-free in           |
+|           |                  |          |                          |                          | __cil_verify_classperms()             |
+|           |                  |          |                          |                          | -->avd.aquasec.com/nvd/cve-2021-36085 |
++           +------------------+          +                          +--------------------------+---------------------------------------+
+|           | CVE-2021-36086   |          |                          |                          | libsepol: use-after-free in           |
+|           |                  |          |                          |                          | cil_reset_classpermission()           |
+|           |                  |          |                          |                          | -->avd.aquasec.com/nvd/cve-2021-36086 |
++           +------------------+          +                          +--------------------------+---------------------------------------+
+|           | CVE-2021-36087   |          |                          |                          | libsepol: heap-based buffer           |
+|           |                  |          |                          |                          | overflow in ebitmap_match_any()       |
+|           |                  |          |                          |                          | -->avd.aquasec.com/nvd/cve-2021-36087 |
++-----------+------------------+          +--------------------------+--------------------------+---------------------------------------+
+| login     | CVE-2013-4235    |          | 1:4.8.1-1ubuntu5.20.04.1 |                          | shadow-utils: TOCTOU race             |
+|           |                  |          |                          |                          | conditions by copying and             |
+|           |                  |          |                          |                          | removing directory trees              |
+|           |                  |          |                          |                          | -->avd.aquasec.com/nvd/cve-2013-4235  |
++-----------+                  +          +                          +--------------------------+                                       +
+| passwd    |                  |          |                          |                          |                                       |
+|           |                  |          |                          |                          |                                       |
+|           |                  |          |                          |                          |                                       |
+|           |                  |          |                          |                          |                                       |
++-----------+------------------+----------+--------------------------+--------------------------+---------------------------------------+
+| perl-base | CVE-2020-16156   | MEDIUM   | 5.30.0-9ubuntu0.2        |                          | perl-CPAN: Bypass of verification     |
+|           |                  |          |                          |                          | of signatures in CHECKSUMS files      |
+|           |                  |          |                          |                          | -->avd.aquasec.com/nvd/cve-2020-16156 |
++-----------+------------------+          +--------------------------+--------------------------+---------------------------------------+
+| zlib1g    | CVE-2018-25032   |          | 1:1.2.11.dfsg-2ubuntu1.2 | 1:1.2.11.dfsg-2ubuntu1.3 | zlib: A flaw in zlib-1.2.11           |
+|           |                  |          |                          |                          | when compressing (not                 |
+|           |                  |          |                          |                          | decompressing!) certain inputs.       |
+|           |                  |          |                          |                          | -->avd.aquasec.com/nvd/cve-2018-25032 |
++-----------+------------------+----------+--------------------------+--------------------------+---------------------------------------+
+ubuntu@ip-10-1-1-52:~/test$
