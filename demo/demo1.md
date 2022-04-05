@@ -313,9 +313,22 @@ server {
 root@126286cced08:/# echo  "Hacking" >/usr/share/nginx/html/hacking.html
 root@126286cced08:/#
 ```
-Fron another container ...
+From another container ...
 ```
 root@a813420e05c5:/# curl 172.17.0.2/hacking.html
 Hacking
 root@a813420e05c5:/#
+```
+Or from the host (you can run any rtool installed on the host inside the container !! )
+```
+ubuntu@ip-10-1-1-52:~$ sudo nsenter -t $PID -n ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+24: eth0@if25: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
+    link/ether 02:42:ac:11:00:02 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet 172.17.0.2/16 brd 172.17.255.255 scope global eth0
+       valid_lft forever preferred_lft forever
+ubuntu@ip-10-1-1-52:~$
 ```
