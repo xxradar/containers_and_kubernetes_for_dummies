@@ -6,7 +6,7 @@ ubuntu@ip-10-1-1-52:~$ uname -r
 5.11.0-1020-aws
 ubuntu@ip-10-1-1-52:~$
 ```
-Check the kernetl version inside the container
+Check the kernel version inside the container
 ```
 ubuntu@ip-10-1-1-52:~$ docker run -it xxradar/hackon
 root@fccf362838ae:/# uname -r
