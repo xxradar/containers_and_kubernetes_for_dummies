@@ -117,7 +117,7 @@ ubuntu@ip-10-1-1-52:~$ sudo ps -ax -n -o pid,netns,cmd | grep nginx
 We can see that the `nginx: master` and `nginx: worker` process are sharing the same network namespace
 
 
-#### Now filter on the network namespace and find all processes that share the network namespace
+#### Now filter on the network namespace and find all processes that shares the network namespace
 ```
 ubuntu@ip-10-1-1-52:~$ sudo ps -ax -n -o pid,netns,cmd | grep 4026532300
 2584204 4026532300 nginx: master process nginx -g daemon off;
