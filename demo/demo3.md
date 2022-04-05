@@ -30,6 +30,8 @@ chroot /mnt
 ```
 
 #### Exploit publicaly available
+https://blog.trailofbits.com/2019/07/19/understanding-docker-container-escapes/
+
 ```
 docker run -it --privileged xxradar/hackon
 ```
