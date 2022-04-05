@@ -170,4 +170,14 @@ echo "ps aux > $host_path/output" >> /cmd
 chmod a+x /cmd
  
 sh -c "echo \$\$ > /tmp/cgrp/x/cgroup.procs"
+
+cat /output
+root@7a9d7d3ca3da:/# cat output
+USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root           1  0.0  0.9 168752  9100 ?        Ss    2021  48:33 /lib/systemd/systemd --system --deserialize 32
+root           2  0.0  0.0      0     0 ?        S     2021   0:00 [kthreadd]
+root           3  0.0  0.0      0     0 ?        I<    2021   0:00 [rcu_gp]
+root           4  0.0  0.0      0     0 ?        I<    2021   0:00 [rcu_par_gp]
+root           6  0.0  0.0      0     0 ?        I<    2021   0:00 [kworker/0:0H-events_highpri]
+root           9  0.0  0.0      0     0 ?        I<    2021   0:00 [mm_percpu_wq]
 ```
