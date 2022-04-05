@@ -28,7 +28,7 @@ root@8d79950f837e:/mnt/etc# cat /mnt/etc/hostname
 ip-10-1-1-52
 root@8d79950f837e:/mnt/etc#
 ```
-#### Become root on the host
+#### We now run things on the host file system ...
 ```
 chroot /mnt
 ```
