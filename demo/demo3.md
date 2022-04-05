@@ -12,9 +12,9 @@ or
 ```
 fdisk -l
 ```
-or (not yet interesting)
+or 
 ```
-ps aux #nothing abnormal
+ip -a
 ```
 #### Mount the boot disk
 ```
