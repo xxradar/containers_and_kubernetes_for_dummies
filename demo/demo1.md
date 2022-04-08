@@ -319,7 +319,7 @@ root@a813420e05c5:/# curl 172.17.0.2/hacking.html
 Hacking
 root@a813420e05c5:/#
 ```
-Or from the host (you can run any rtool installed on the host inside the container !! )
+Or from the host (you can run any tool installed on the host inside the container !! )
 ```
 ubuntu@ip-10-1-1-52:~$ sudo nsenter -t $PID -n ip a
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
