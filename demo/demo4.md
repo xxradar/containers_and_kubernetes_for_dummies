@@ -18,7 +18,7 @@ grep 4026532927
  6229 4026532927 4026532396 4026532397 4026532456 4026532457 nginx: master process nginx -g daemon off;
  6778 4026532927 4026532396 4026532397 4026532456 4026532457 nginx: worker process
 ```
-We now found all the processes that share the netns, but what we see is even more interesting. We found the /pause container. It’s a container which holds the network netns, utsns and ipcns namespace for the pod. Kubernetes creates the `/pause` containers to acquire for example the respective pod’s IP address and share it with all other containers that join that pod.
+We now found all the processes that share the netns, but what we see is even more interesting. We found the `/pause` container. It’s a container which holds the network netns, utsns and ipcns namespace for the pod. Kubernetes creates the `/pause` containers to acquire for example the respective pod’s IP address and share it with all other containers that join that pod.
 
 #### Could we modify the content of the www-demo ?
 ```
