@@ -64,6 +64,7 @@ spec:
             optional: false
 EOF
 ```
+```
 $ kubectl exec -it mypod2 -- bash
 echo $SECRET_PASSWORD
 ...
