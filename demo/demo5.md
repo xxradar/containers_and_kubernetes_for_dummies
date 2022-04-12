@@ -39,3 +39,28 @@ $ kubectl exec -it mypod -- cat /etc/foo/password
 $ kubectl exec -it mypod -- cat /etc/foo/username
 admin
 ```
+```
+kubectl apply -f -<<EOF
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+  - name: mypod
+    image: redis
+    env:
+      - name: SECRET_USERNAME
+        valueFrom:
+          secretKeyRef:
+            name: mysecret
+            key: username
+            optional: false
+       - name: SECRET_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: mysecret
+            key: password
+            optional: false
+EOF
+```
