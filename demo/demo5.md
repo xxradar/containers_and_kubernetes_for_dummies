@@ -6,13 +6,36 @@ data:
   password: MWYyZDFlMmU2N2Rm
 kind: Secret
 metadata:
-  annotations:
-    kubectl.kubernetes.io/last-applied-configuration: { ... }
-  creationTimestamp: 2020-01-22T18:41:56Z
   name: mysecret
   namespace: default
-  resourceVersion: "164619"
-  uid: cfee02d6-c137-11e5-8d73-42010af00002
 type: Opaque
 EOF
+```
+```
+kubectl apply -f -<<EOF
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mypod
+spec:
+  containers:
+  - name: mypod
+    image: redis
+    volumeMounts:
+    - name: foo
+      mountPath: "/etc/foo"
+      readOnly: true
+  volumes:
+  - name: foo
+    secret:
+      secretName: mysecret
+      optional: false # default setting; "mysecret" must exist
+EOF
+```
+```
+$ kubectl exec -it mypod -- cat /etc/foo/password
+1f2d1e2e67df
+
+$ kubectl exec -it mypod -- cat /etc/foo/username
+adminubuntu
 ```
