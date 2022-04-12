@@ -1,3 +1,4 @@
+
 ## What about kubernetes?
 
 #### Let’s create a pod.
@@ -23,8 +24,10 @@ We now found all the processes that share the netns, but what we see is even mor
 #### Could we modify the content of the www-demo ?
 ```
 $ sudo nsenter --target 6229 --mount --uts --ipc --net --pid
-root@www-demo-8c4d7cc75-vfh9d:/# echo  /
-"Hacking" >/usr/share/nginx/html/hacking.html$ exit$ kubectl run -it --rm --image xxradar/hackon debug
+root@www-demo-8c4d7cc75-vfh9d:/# echo"Hacking" >/usr/share/nginx/html/hacking.html
+$ exit
+
+$ kubectl run -it --rm --image xxradar/hackon debug
 root@debug:/# curl 10.0.1.207/hacking.html
 Hacking
 ...
