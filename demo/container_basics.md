@@ -104,7 +104,8 @@ ubuntu@ip-10-1-1-52:~$ sudo lsns
 ubuntu@ip-10-1-1-52:~$
 ```
 As you can see, the new container is a process in an new mnt, uts, ipc, pid and net namespace. <br>
-`lsns` is only showing basic info. So let's see to get at the bottom of this.
+`lsns` is only showing basic info and name of the process of the lowest pid. <br>
+So let's see to get at the bottom of this.
 
 
 ####  First find the pid and namespace of what you want to check ...
