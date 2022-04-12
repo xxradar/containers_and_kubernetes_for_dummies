@@ -44,7 +44,7 @@ kubectl apply -f -<<EOF
 apiVersion: v1
 kind: Pod
 metadata:
-  name: mypod
+  name: mypod2
 spec:
   containers:
   - name: mypod
@@ -56,7 +56,7 @@ spec:
             name: mysecret
             key: username
             optional: false
-       - name: SECRET_PASSWORD
+      - name: SECRET_PASSWORD
         valueFrom:
           secretKeyRef:
             name: mysecret
