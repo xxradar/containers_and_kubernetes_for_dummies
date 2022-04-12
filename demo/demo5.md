@@ -37,5 +37,5 @@ $ kubectl exec -it mypod -- cat /etc/foo/password
 1f2d1e2e67df
 
 $ kubectl exec -it mypod -- cat /etc/foo/username
-adminubuntu
+admin
 ```
