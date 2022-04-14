@@ -232,8 +232,8 @@ cat <<EOF >fdevsec.yaml
 version: v1
 
 id:
-  org: 506202ab-209a-49d9-aaa3-59ea554452df
-  app: 47638376-dc2c-4f77-9193-c3a2e6a92640
+  org: 506202ab-209a-49d9-aaa3-59ea5xxxxxxf
+  app: 47638376-dc2c-4f77-9193-c3a2exxxxxx0
 
 scanners:
 - sast
