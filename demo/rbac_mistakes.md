@@ -37,5 +37,5 @@ curl --cacert $KUBE_CA  https://kubernetes/api/v1/
 curl --cacert $KUBE_CA -H "Authorization: Bearer $KUBE_TOKEN"  https://kubernetes/api/v1/
 curl --cacert $KUBE_CA -H "Authorization: Bearer $KUBE_TOKEN"  https://kubernetes/apis/
 curl --cacert $KUBE_CA -H "Authorization: Bearer $KUBE_TOKEN"  https://kubernetes/apis/crd.projectcalico.org/v1
-curl --cacert $KUBE_CA -H "Authorization: Bearer $KUBE_TOKEN"  https://kubernetes/api/v1/namespaces/default/debug/debug/
+curl --cacert $KUBE_CA -H "Authorization: Bearer $KUBE_TOKEN"  https://kubernetes/api/v1/namespaces/default/pods/debug/
 ```
