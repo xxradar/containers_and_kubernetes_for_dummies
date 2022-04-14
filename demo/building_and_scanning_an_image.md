@@ -1,6 +1,9 @@
 ## Creating a container image
 ```
  curl https://raw.githubusercontent.com/xxradar/TLSSAN_scanner/master/tlssan_scan.sh >tlssan_scan.sh
+ ...
+ chmod 700 ./tlssan_scan.sh
+ ...
 ```
 ```
 cat <<EOF >Dockerfile
