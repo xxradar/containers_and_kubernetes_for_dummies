@@ -28,7 +28,7 @@ EOF
 ```
 
 ```
-docker run --it --rm --image xxradar/hackon -- bash
+kubectl run -it --rm --image xxradar/hackon  debug -- bash
 KUBE_TOKEN=$(</var/run/secrets/kubernetes.io/serviceaccount/token)
 KUBE_CA="/var/run/secrets/kubernetes.io/serviceaccount/ca.crt"
 curl -kv   https://kubernetes/api/v1/
@@ -37,5 +37,5 @@ curl --cacert $KUBE_CA  https://kubernetes/api/v1/
 curl --cacert $KUBE_CA -H "Authorization: Bearer $KUBE_TOKEN"  https://kubernetes/api/v1/
 curl --cacert $KUBE_CA -H "Authorization: Bearer $KUBE_TOKEN"  https://kubernetes/apis/
 curl --cacert $KUBE_CA -H "Authorization: Bearer $KUBE_TOKEN"  https://kubernetes/apis/crd.projectcalico.org/v1
-curl --cacert $KUBE_CA -H "Authorization: Bearer $KUBE_TOKEN"  https://kubernetes/api/v1/namespaces/default/pods/demo/
+curl --cacert $KUBE_CA -H "Authorization: Bearer $KUBE_TOKEN"  https://kubernetes/api/v1/namespaces/default/debug/debug/
 ```
